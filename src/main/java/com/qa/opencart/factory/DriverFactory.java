@@ -49,11 +49,11 @@ public class DriverFactory {
 			//driver = new EdgeDriver();
 			tldriver.set(new EdgeDriver(optionManger.getEdgeOption()));
 		} else {
-			System.out.println("Plz pass the right browser::" + browserName);
+			System.out.println("Plz pass the right browser name::" + browserName);
 		}
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
-		getDriver().get(prop.getProperty("url"));
+		getDriver().get(prop.getProperty("url").trim());
 	    return getDriver();
 		//return driver;
 	    // and here driver is returned with same session ID which is created
