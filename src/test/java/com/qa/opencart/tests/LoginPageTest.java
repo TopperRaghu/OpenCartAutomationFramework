@@ -10,23 +10,23 @@ import io.qameta.allure.Epic;
 @Epic(value = "EPIC NO-100-Login test design")
 public class LoginPageTest extends BaseTest{
 	
-	@Test(priority = 1)
+	@Test
 	public void loginPageTitleTest() {
 		String actualTitle=lp.getPageTitle();
 		Assert.assertEquals(actualTitle, "Account Login");
 	}
-	@Test(priority = 2)
+	@Test
 	public void loginPageUrlTest() {
 		String actualurl=lp.getCurrentUrl();
 		Assert.assertTrue(actualurl.contains("/opencart/index.php?route=account/login"));
 	}
 	
-	@Test(priority = 3)
+	@Test
 	public void forgotPwdTest() {
 		boolean cond=lp.forgetLinkDisplayed();
 		Assert.assertTrue(cond);
 	}
-	@Test(priority = 4)
+	@Test(priority = Integer.MAX_VALUE)
 	public void doLoginTest()  {
 		accs=lp.doLogin(prop.getProperty("username").trim(),prop.getProperty("password").trim());
 		Assert.assertTrue(accs.verifyLogoutLinkExits());

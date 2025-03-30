@@ -195,6 +195,11 @@ public class ElementUtil {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
+	public Boolean waitForElementInvisible(By locator, int timeOut) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
+
 	/**
 	 * An expectation for checking that all elements present on the web page that
 	 * match the locator are visible. Visibility means that the elements are not

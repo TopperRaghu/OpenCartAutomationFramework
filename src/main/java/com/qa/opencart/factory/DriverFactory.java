@@ -15,6 +15,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.io.FileHandler;
 
+import com.qa.opencart.exceptions.BrowserException;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
@@ -47,9 +49,10 @@ public class DriverFactory {
 			//driver = new EdgeDriver(optionManger.getEdgeOption())
 					;// session ID is created example:-123fjjhfd
 			//driver = new EdgeDriver();
-			tldriver.set(new EdgeDriver(optionManger.getEdgeOption()));
+			tldriver.set(new EdgeDriver());
 		} else {
 			System.out.println("Plz pass the right browser name::" + browserName);
+			throw new BrowserException("Invalid browser");
 		}
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
